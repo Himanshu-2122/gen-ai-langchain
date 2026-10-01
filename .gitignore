@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 # Virtual environment
 myenv/
 .venv/
 venv/
 
 # Environment variables / secrets
+=======
+# Environment variables
+>>>>>>> origin/main
 .env
 .env.*
 
@@ -12,6 +16,7 @@ __pycache__/
 *.py[cod]
 *.pyo
 
+<<<<<<< HEAD
 # IDE
 .vscode/
 .idea/
@@ -22,3 +27,15 @@ Thumbs.db
 
 # Logs
 *.log
+=======
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+>>>>>>> origin/main

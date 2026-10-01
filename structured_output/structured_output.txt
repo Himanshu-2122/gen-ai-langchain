@@ -1,0 +1,98 @@
+## llms gives us textual answer and so this is unstructured output so we want connect the our llm to other tools like databese , apis ..
+
+
+## llms 2 type give structured output and cant give structured ouput 
+
+## with_structure_output >1 first type by default give us structured output like chatgpt and claude , gemini 
+
+
+## parsers 
+
+
+with_structured_output    -- typed dictionary , pydentic , json schema 
+
+
+typed dictionary 
+
+class Person :
+    name : str,
+    age : number ,
+
+is a validation and not give us the error if we fucked it  did up ..
+
+
+
+class Reviews(TypedDict):
+    Key_themes : Annotated[list[str] ,"write dowm all the key theme of the reviews" ]
+    summary: Annotated[str , "A Brief summary of the my reviews"]
+    sentiment: Annotated[str , "Return sentiment of the review in following format of (neutral , negative , positive)"]
+    pros : Annotated[Optional[list[str]] ,"write down all the pros about the reviews" ]
+    cons : Annotated[Optional[list[str]] ,"write down all the cons about the reviews" ]
+    name : Annotated[Optional[str], "write the reviewer name"]
+
+structure_model = model.with_structured_output(
+    Reviews,
+    method="json_schema"
+)
+
+
+user_review = """
+Waste of money
+
+Apple wants us to fund money for Apple Duo went into research
+and development. Why are people still buying new iPhones
+
+write by shivani
+"""
+
+
+result = structure_model.invoke(user_review)
+
+print(result)
+
+print(result["name"])
+
+user_review = """
+Waste of money
+
+Apple wants us to fund money for Apple Duo went into research
+and development. Why are people still buying new iPhones
+
+write by shivani
+"""
+
+
+result = structure_model.invoke(user_review)
+
+print(result)
+
+print(result["name"])
+
+
+
+
+
+### pydentic ---------
+
+
+it is used fro a data validation and data parsinng library for python , it transform the data in to structured , correct , type-safe
+
+ 
+
+
+
+## json schema ---- is generally used when your project is on multiple techstack
+
+
+when to use 
+TypedDict ---  only need type hint
+
+pydantic --- use for data validation and used when you are in entire python enviroment 
+
+json --- used multiple stack enviroment 
+
+
+
+with_structure_output(schema_name , method)
+
+method ---- json mode , function calling ,
