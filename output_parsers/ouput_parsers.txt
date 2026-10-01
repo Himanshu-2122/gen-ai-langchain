@@ -1,0 +1,8 @@
+output parsers --- in langchian convert raw LLMs respones in to structured format like JSON , CSV , Pydantic Model , more , they esure consistancy , validation and ease of use in application
+
+type output parsers :
+
+(string 
+json
+structured 
+pydantic) output parser
