@@ -1,5 +1,7 @@
 langchain
 langchain-core
-langchain_community
+langchain-community
 langchain-groq
 python-dotenv
+pypdf
+langchain-text-splitters
